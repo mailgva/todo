@@ -13,3 +13,50 @@ mvn clean compile spring-boot:run
 
 ## Для запуска в Postman необходимо импортировать файл: 
 ToDo.postman_collection
+
+==========================================================================
+
+### Регистрация пользователя. Тело запроса должно содержать JSON с полями: username, password
+POST http://localhost:8080/user/register/
+{
+"username":"vasya",
+"password":"password"
+}
+
+### Авторизация пользователя. Тело запроса должно содержать JSON с полями: username, password. Ответ в заголовке будет содержать токен.
+POST http://localhost:8080/user/auth/
+{
+"username":"vasya",
+"password":"password"
+}
+
+### Все запросы отправляемые на http://localhost:8080/todo/** должны содержать заголовок
+Authorization со значением токена
+
+### Получение списка всех задач. Сортировка по возрастанию даты.
+GET http://localhost:8080/todo/
+
+### Получение задачи по ее ID.
+GET http://localhost:8080/todo/1000004
+
+### Добавление задачи. Тело запроса должно содержать JSON с полями: dateTime, task, executed
+POST http://localhost:8080/todo/
+{
+"dateTime": "2021-02-28T13:00:00",
+"task": "The best task for this day",
+"executed": false
+}
+
+### Изменение задачи. Тело запроса должно содержать JSON с полями: id, dateTime, task, executed
+PUT http://localhost:8080/todo/
+{
+"id": 1000006,
+"dateTime": "2021-02-28T14:00:00",
+"task": "The best of the best task for this day",
+"executed": true
+}
+
+### Удаление задачи.
+DELETE http://localhost:8080/todo/1000004
+
+
