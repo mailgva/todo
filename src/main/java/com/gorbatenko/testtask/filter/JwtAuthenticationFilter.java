@@ -1,6 +1,5 @@
-package com.gorbatenko.testtask.authentication.filters;
+package com.gorbatenko.testtask.filter;
 
-import com.gorbatenko.testtask.authentication.UsernamePasswordAuthentication;
 import com.gorbatenko.testtask.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -8,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -70,7 +70,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         GrantedAuthority a = new SimpleGrantedAuthority("user");
-        var auth = new UsernamePasswordAuthentication(username, null, List.of(a));
+        var auth = new UsernamePasswordAuthenticationToken(username, null, List.of(a));
         SecurityContextHolder.getContext().setAuthentication(auth);
 
         filterChain.doFilter(request, response);
