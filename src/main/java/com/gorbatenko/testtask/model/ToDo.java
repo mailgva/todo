@@ -29,7 +29,7 @@ public class ToDo  {
     private String task;
 
     @Column(name="executed")
-    private Boolean executed;
+    private Boolean executed = false;
 
     public ToDo(User user, LocalDateTime dateTime, String task, boolean executed) {
         this.user = user;

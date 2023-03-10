@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fd7275bf-e578-4188-8c70-bf51d19c5b90",
+		"_postman_id": "08b64324-e5aa-48af-8f41-2cf3f3143324",
 		"name": "ToDo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -131,7 +131,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dateTime\": \"2021-02-28T13:00:00\",\r\n    \"task\": \"The best task for this day\",\r\n    \"executed\": false\r\n}"
+					"raw": "{\r\n    \"dateTime\": \"2021-02-28T13:00:00\",\r\n    \"task\": \"The best task for this day\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/todo/",
@@ -166,7 +166,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dateTime\": \"2021-02-28T15:00:00\",\r\n    \"task\": \"Don t  drink\",\r\n    \"executed\": false\r\n}"
+					"raw": "{\r\n    \"dateTime\": \"2021-02-28T15:00:00\",\r\n    \"task\": \"Don t  drink\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/todo/",
@@ -201,9 +201,20 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1000006,\r\n    \"dateTime\": \"2021-02-28T14:00:00\",\r\n    \"task\": \"The best of the best task for this day\",\r\n    \"executed\": true\r\n}\r\n"
+					"raw": "{\r\n    \"dateTime\": \"2021-02-28T14:00:00\",\r\n    \"task\": \"The best of the best task for this day\",\r\n    \"executed\": true\r\n}\r\n"
 				},
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/todo/1000007",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"todo",
+						"1000007"
+					]
+				}
 			},
 			"response": []
 		},

@@ -16,8 +16,7 @@
 	<description>Test task "ToDo list" for GBSFO</description>
 
 	<properties>
-		<java.version>15</java.version>
-		<postgresql.version>42.2.19</postgresql.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
@@ -67,12 +66,6 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-
-		<!--<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>${postgresql.version}</version>
-		</dependency>-->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>

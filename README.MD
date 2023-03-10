@@ -44,13 +44,11 @@ POST http://localhost:8080/todo/
 {
 "dateTime": "2021-02-28T13:00:00",
 "task": "The best task for this day",
-"executed": false
 }
 
 ### Изменение задачи. Тело запроса должно содержать JSON с полями: id, dateTime, task, executed
-PUT http://localhost:8080/todo/
+PUT http://localhost:8080/todo/{id}
 {
-"id": 1000006,
 "dateTime": "2021-02-28T14:00:00",
 "task": "The best of the best task for this day",
 "executed": true

@@ -54,13 +54,13 @@ public class ToDoController extends AbstractController {
         return ResponseEntity.created(uriOfNewResource).body(toDo);
     }
 
-    @PutMapping(consumes = "application/json")
-    public ResponseEntity<Void> update(@RequestBody ToDoTo toDoTo, Principal principal){
-        toDoRepository.findByIdAndUserId(toDoTo.getId(), getUserIdFromPrincipal(principal))
+    @PutMapping(value = "/{id}", consumes = "application/json")
+    public ResponseEntity<Void> update(@PathVariable long id, @RequestBody ToDoTo toDoTo, Principal principal){
+        toDoRepository.findByIdAndUserId(id, getUserIdFromPrincipal(principal))
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         ToDo toDo = fromTo(toDoTo, principal);
-        toDo.setId(toDoTo.getId());
+        toDo.setId(id);
 
         toDoRepository.save(toDo);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT );
